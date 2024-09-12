@@ -1,22 +1,36 @@
-### Run GCP services using terraform
+# Run GCP Services Using Terraform
 
-- Create a gcp account
-- create a project
-- create a service account which has 3 roles
-    - storage Admin
-    - BigQuery Admin
-    - Compute Admin
-(these permisions are too broad for production this is for demo purposes)
-- download the keys for the service account creadentials and secure them safely
-- add the credentials path to the `variables.tf` file
+This guide will help you set up Google Cloud services using **Terraform**. Follow the steps below to configure your environment and execute Terraform commands.
 
+## Prerequisites
 
-use the four main terraform commands
-1. terraform init:
-    - Initializes & configures the backend, installs plugins/providers, & checks out an existing configuration from a version control
-2. terraform plan:
-    - Matches/previews local changes against a remote state, and proposes an Execution Plan.
-3. terraform apply:
-    - Asks for approval to the proposed plan, and applies changes to cloud
-4. terraform destroy
-    - Removes your stack from the Cloud
+### 1. Create a GCP Account and Project
+- Sign up for a **Google Cloud Platform (GCP)** account if you don't have one.
+- Create a new GCP project.
+
+### 2. Set Up a Service Account
+- Create a service account with the following roles:
+  - **Storage Admin**
+  - **BigQuery Admin**
+  - **Compute Admin**  
+  *(Note: These permissions are overly broad for production environments; they are assigned here for demonstration purposes.)*
+  
+### 3. Download Service Account Credentials
+- Download the **service account key** file (JSON format) and store it securely.
+- Add the path to the credentials file in the `variables.tf` file.
+
+## Terraform Commands
+
+Use the following Terraform commands to manage your infrastructure:
+
+1. **terraform init**
+   - Initializes and configures the backend, installs necessary plugins/providers, and checks out the existing configuration from version control.
+
+2. **terraform plan**
+   - Previews local changes against the remote state and generates an execution plan.
+
+3. **terraform apply**
+   - Prompts for approval and applies the changes to the cloud infrastructure based on the execution plan.
+
+4. **terraform destroy**
+   - Removes all the resources defined in your configuration from the cloud.
